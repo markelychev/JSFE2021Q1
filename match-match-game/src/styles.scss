@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 10px 16px;
+  background-color: #f2f9fe;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 1px 18px rgba(0, 0, 0, 0.12),
+    0px 6px 10px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #2196f3;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1), 0px 1px 18px rgba(0, 0, 0, 0.5),
+      0px 6px 10px rgba(0, 0, 0, 0.14);
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 20px;
+  letter-spacing: 1.25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #2196f3;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s;
+  &:hover {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  &__w {
+    padding: 0px 20px;
+    &-top {
+      color: #fff;
+    }
+    &-bottom {
+      background-color: #fff;
+    }
+  }
+}
+
+.nav {
+  height: 100%;
+  &__list {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  }
+
+  &__item {
+    height: 100%;
+    opacity: 0.3;
+    &-active {
+      opacity: 1;
+    }
+  }
+
+  &__link {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95px;
+    background-color: #1e88e5;
+    text-decoration: none;
+    color: #ffffff;
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border-radius: 50%;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.header {
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  height: 65px;
+
+  &__nav {
+    margin-right: auto;
+    margin-left: 200px;
+  }
+  background-color: #2196f3;
+}
