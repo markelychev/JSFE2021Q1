@@ -1,8 +1,5 @@
+import App from './components/app/app'
 import './styles.scss'
 
-document.querySelectorAll('.card').forEach(element => {
-  element.addEventListener('click', () => {
-    element.classList.add('flipped')
 
-  })
-})
+const app = new App()
