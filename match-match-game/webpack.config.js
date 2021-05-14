@@ -5,21 +5,19 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
-const devServer = (isDev) =>
-  !isDev
-    ? {}
-    : {
-        devServer: {
-          contentBase: path.join(__dirname, 'src'),
-          liveReload: true,
-          watchContentBase: true,
-          hot: true,
-          port: 8080,
-        },
-      };
+const devServer = (isDev) => (!isDev
+  ? {}
+  : {
+    devServer: {
+      contentBase: path.join(__dirname, 'src'),
+      liveReload: true,
+      watchContentBase: true,
+      hot: true,
+      port: 8080,
+    },
+  });
 
-const esLintPlugin = (isDev) =>
-  isDev ? [] : [new ESLintPlugin({ extensions: ['ts', 'js'] })];
+const esLintPlugin = (isDev) => (isDev ? [] : [new ESLintPlugin({ extensions: ['ts', 'js'] })]);
 
 module.exports = ({ development }) => ({
   mode: development ? 'development' : 'production',

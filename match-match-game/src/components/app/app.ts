@@ -1,7 +1,7 @@
-const { default: ElementCreator } = require("../elementCreator/elementCreator");
+// const { default: ElementCreator } = require('../elementCreator/elementCreator');
 
-export default class App extends ElementCreator {
-  constructor() {
-    super()
-  }
-}
+// export default class App extends ElementCreator {
+//   constructor() {
+//     super();
+//   }
+// }
