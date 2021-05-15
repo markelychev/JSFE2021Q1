@@ -17,6 +17,8 @@ export default class Game extends ElementCreator {
 
   private isAnimation: boolean;
 
+  private matched: number;
+
   private readonly images: string[];
 
   private readonly gameField = new GameField();
@@ -26,6 +28,7 @@ export default class Game extends ElementCreator {
   constructor(imgs: string[], size = 4) {
     super('div', ['game']);
     this.size = size;
+    this.matched = 0;
     this.isAnimation = false;
     this.images = [...imgs];
     this.element.appendChild(this.gameTimer.element);
@@ -61,6 +64,10 @@ export default class Game extends ElementCreator {
       card.flip();
       if (this.flippedCard.img === card.img) {
         console.log('win');
+        this.matched++;
+        if (this.matched === this.size) {
+          this.gameTimer.stop()
+        }
       } else {
         await delay(delayFlip);
         this.flippedCard.flip();

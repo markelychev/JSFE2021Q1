@@ -5,6 +5,6 @@ const imgs = ['img/eagle.jpg', 'img/elephant.jpg', 'img/lion.jpg', 'img/tiger.jp
 
 const gameNode = document.querySelector('.game') ?? document.body;
 
-const game = new Game(imgs, 4).start();
+const game = new Game(imgs, 2).start();
 
 gameNode.appendChild(game.element);
