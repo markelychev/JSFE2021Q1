@@ -2,6 +2,7 @@ import delay from '../../assets/helpers/delay';
 import Card from '../card/card';
 import ElementCreator from '../elementCreator/elementCreator';
 import GameField from '../gameField/gameField';
+import Timer from '../timer/timer';
 import './game.scss';
 
 const delayStart = 5000;
@@ -9,19 +10,25 @@ const delayFlip = 3000;
 
 export default class Game extends ElementCreator {
   private size: number;
+
   private cards: Card[];
+
   private flippedCard?: Card;
-  private isAnimation: boolean
+
+  private isAnimation: boolean;
 
   private readonly images: string[];
 
   private readonly gameField = new GameField();
+
+  private readonly gameTimer = new Timer();
 
   constructor(imgs: string[], size = 4) {
     super('div', ['game']);
     this.size = size;
     this.isAnimation = false;
     this.images = [...imgs];
+    this.element.appendChild(this.gameTimer.element);
     this.element.appendChild(this.gameField.element);
     this.cards = this.createCards();
     this.addHandlers();
@@ -81,6 +88,7 @@ export default class Game extends ElementCreator {
       this.cards.forEach((card) => {
         card.flip();
       });
+      this.gameTimer.run()
     }, delayStart);
 
     return this;
