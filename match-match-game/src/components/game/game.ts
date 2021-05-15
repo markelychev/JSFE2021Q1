@@ -9,10 +9,9 @@ const delayFlip = 3000;
 
 export default class Game extends ElementCreator {
   private size: number;
-
   private cards: Card[];
-
   private flippedCard?: Card;
+  private isAnimation: boolean
 
   private readonly images: string[];
 
@@ -21,6 +20,7 @@ export default class Game extends ElementCreator {
   constructor(imgs: string[], size = 4) {
     super('div', ['game']);
     this.size = size;
+    this.isAnimation = false;
     this.images = [...imgs];
     this.element.appendChild(this.gameField.element);
     this.cards = this.createCards();
@@ -32,12 +32,20 @@ export default class Game extends ElementCreator {
   };
 
   private cardHandler = async (card: Card) => {
+    if (this.isAnimation) {
+      return;
+    }
+
+    this.isAnimation = true;
+
     if (card.isFlipped) {
+      this.isAnimation = false;
       return;
     }
 
     if (!this.flippedCard) {
       this.flippedCard = card;
+      this.isAnimation = false;
       card.flip();
       return;
     }
@@ -53,6 +61,7 @@ export default class Game extends ElementCreator {
       }
     }
 
+    this.isAnimation = false;
     this.flippedCard = undefined;
   };
 
