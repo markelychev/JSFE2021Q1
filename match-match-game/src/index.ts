@@ -1,10 +1,10 @@
-import Card from './components/card/card';
-import GameField from './components/gameField/gameField';
+import Game from './components/game/game';
 import './styles.scss';
 
-const game = document.querySelector('.game') ?? document.body;
-const gameField = new GameField();
-const card = new Card('./img/eagle.jpg');
+const imgs = ['img/eagle.jpg', 'img/elephant.jpg', 'img/lion.jpg', 'img/tiger.jpg', 'img/wolf.jpg']
 
-gameField.element.append(card.element);
-game.append(gameField.element);
+const gameNode = document.querySelector('.game') ?? document.body;
+
+const game = new Game(imgs, 4).start();
+
+gameNode.appendChild(game.element);
