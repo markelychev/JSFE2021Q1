@@ -6,6 +6,8 @@ const CopyPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const PrettierPlugin = require("prettier-webpack-plugin");
 
+const prettier = (isDev) =>(isDev ? [] : [new PrettierPlugin()]);
+
 const devServer = (isDev) => (!isDev
   ? {}
   : {
@@ -57,7 +59,7 @@ module.exports = ({ development }) => ({
     ],
   },
   plugins: [
-    new PrettierPlugin(),    
+    //...prettier(development),    
     ...esLintPlugin(development),
     new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
     new HtmlWebpackPlugin({ template: 'src/index.html' }),
