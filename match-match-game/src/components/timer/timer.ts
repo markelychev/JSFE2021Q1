@@ -1,5 +1,7 @@
 import './timer.scss';
 import ElementCreator from '../elementCreator/elementCreator';
+import formatTime from '../../assets/helpers/formatTime';
+import formatedTime from '../../assets/models/formatedTime-model'
 
 export default class Timer extends ElementCreator {
   private time: number;
@@ -13,8 +15,9 @@ export default class Timer extends ElementCreator {
 
     this.sec = document.createElement('span');
     this.min = document.createElement('span');
-    this.sec.innerText = '00'
-    this.min.innerText = '00'
+
+    this.addValue(formatTime(this.time))
+
     this.element.innerText = ':'
     this.element.prepend(this.min);
     this.element.append(this.sec);
@@ -24,8 +27,13 @@ export default class Timer extends ElementCreator {
   run = () => {
     this.intervalId = setInterval(() => {
       this.time++;
-      this.sec.innerText = `${this.time}`;
+      this.addValue(formatTime(this.time))
     }, 1000)
+  }
+
+  private addValue = (time: formatedTime) => {
+    this.sec.innerText = time.sec
+    this.min.innerText = time.min
   }
 
   stop = () => {
