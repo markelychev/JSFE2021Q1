@@ -3,8 +3,9 @@ import ElementCreator from '../elementCreator/elementCreator';
 
 export default class Timer extends ElementCreator {
   private time: number;
-  private sec: HTMLElement
-  private min: HTMLElement
+  private sec: HTMLElement;
+  private min: HTMLElement;
+  private intervalId?: NodeJS.Timeout
 
   constructor() {
     super('div', ['game__timer']);
@@ -21,9 +22,13 @@ export default class Timer extends ElementCreator {
   }
 
   run = () => {
-    setInterval(() => {
+    this.intervalId = setInterval(() => {
       this.time++;
       this.sec.innerText = `${this.time}`;
     }, 1000)
+  }
+
+  stop = () => {
+    if (this.intervalId) { clearInterval(this.intervalId); }
   }
 }
