@@ -8,6 +8,6 @@ const imgs = ['img/eagle.jpg', 'img/elephant.jpg', 'img/lion.jpg', 'img/tiger.jp
 
 // const game = new Game(imgs, 2).start();
 
-new App(document.querySelector('#root'));
+new App(document.querySelector('#root')).render();
 
 //gameNode.appendChild(game.element);

@@ -1,4 +1,5 @@
 import ElementCreator from '../elementCreator/elementCreator'
+import Nav from '../nav/nav';
 import './header.scss';
 
 const logoHTML = `<a href="" class="logo">
@@ -7,18 +8,12 @@ const logoHTML = `<a href="" class="logo">
     </a>`
 
 export default class Header extends ElementCreator {
+  private readonly nav: Nav = new Nav()
   constructor() {
     super('header', ['header']);
+    console.log(this.nav.element)
     this.element.innerHTML = `${logoHTML}
-    <nav class="nav header__nav">
-      <ul class="nav__list">
-        <li class="nav__item nav__item-active">
-          <a href="" class="nav__link">About game</a>
-        </li>
-        <li class="nav__item"><a href="" class="nav__link">Game score</a></li>
-        <li class="nav__item"><a href="" class="nav__link">Settings</a></li>
-      </ul>
-    </nav>
     <button class="btn">register new player</button>`
+    this.element.append(this.nav.element)
   }
 }

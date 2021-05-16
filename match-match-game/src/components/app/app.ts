@@ -7,7 +7,7 @@ export default class App {
 
   render = () => {
     if (this.rootNode) {
-      this.rootNode.append(this.header.element)
+      this.rootNode.prepend(this.header.element)
     }
   }
 
