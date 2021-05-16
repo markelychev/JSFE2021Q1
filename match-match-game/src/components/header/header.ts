@@ -1,5 +1,5 @@
 import ElementCreator from '../elementCreator/elementCreator'
-import './headet.scss'
+import './header.scss'
 
 export default class Header extends ElementCreator {
   constructor() {
