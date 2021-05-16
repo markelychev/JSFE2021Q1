@@ -1,7 +1,7 @@
 import './timer.scss';
 import ElementCreator from '../elementCreator/elementCreator';
-import formatTime from '../../assets/helpers/formatTime';
-import formatedTime from '../../assets/models/formatedTime-model'
+import formatTime from '../../helpers/formatTime';
+import formatedTime from '../../models/formatedTime-model'
 
 export default class Timer extends ElementCreator {
   private time: number;

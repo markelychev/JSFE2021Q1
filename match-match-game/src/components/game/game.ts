@@ -1,4 +1,4 @@
-import delay from '../../assets/helpers/delay';
+import delay from '../../helpers/delay';
 import Card from '../card/card';
 import ElementCreator from '../elementCreator/elementCreator';
 import GameField from '../gameField/gameField';
