@@ -9,15 +9,15 @@ const delayStart = 5000;
 const delayFlip = 3000;
 
 export default class Game extends ElementCreator {
-  private size: number;
-
-  private cards: Card[];
-
   private flippedCard?: Card;
 
-  private isAnimation: boolean;
+  private isAnimated: boolean;
 
   private matched: number;
+
+  private readonly size: number;
+
+  private readonly cards: Card[];
 
   private readonly images: string[];
 
@@ -29,7 +29,7 @@ export default class Game extends ElementCreator {
     super('div', ['game']);
     this.size = size;
     this.matched = 0;
-    this.isAnimation = false;
+    this.isAnimated = false;
     this.images = [...imgs];
     this.element.appendChild(this.gameTimer.element);
     this.element.appendChild(this.gameField.element);
@@ -38,24 +38,25 @@ export default class Game extends ElementCreator {
   }
 
   private addHandlers = () => {
+    //TODO cards: Map<> слушателя на this.element
     this.cards.forEach((card) => card.element.addEventListener('click', () => this.cardHandler(card)));
   };
 
   private cardHandler = async (card: Card) => {
-    if (this.isAnimation) {
+    if (this.isAnimated) {
       return;
     }
 
-    this.isAnimation = true;
+    this.isAnimated = true;
 
     if (card.isFlipped) {
-      this.isAnimation = false;
+      this.isAnimated = false;
       return;
     }
 
     if (!this.flippedCard) {
       this.flippedCard = card;
-      this.isAnimation = false;
+      this.isAnimated = false;
       card.flip();
       return;
     }
@@ -75,7 +76,7 @@ export default class Game extends ElementCreator {
       }
     }
 
-    this.isAnimation = false;
+    this.isAnimated = false;
     this.flippedCard = undefined;
   };
 
