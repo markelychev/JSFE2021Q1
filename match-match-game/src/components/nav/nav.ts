@@ -16,12 +16,6 @@ export default class Nav extends ElementCreator {
     console.log(this.element)
   }
 
-  private createElement = (tag: keyof HTMLElementTagNameMap = 'div', classNames: Array<string> = []): HTMLElement => {
-    const el = document.createElement(tag);
-    classNames.forEach((className) => el.classList.add(className))
-    return el;
-  }
-
   private createList = () => {
 
     const listNode = this.createElement('ul', ['nav__list']);
