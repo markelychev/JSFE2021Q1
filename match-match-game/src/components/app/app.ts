@@ -14,15 +14,12 @@ export default class App {
 
     router
       .addRoute('About_game', () => {
-        alert('welcome in about page');
         observer.notify('router', 'About_game')
       })
       .addRoute('Game_score', () => {
-        alert('welcome in Game_score');
         observer.notify('router', 'Game_score')
       })
       .addRoute('Settings', () => {
-        alert('welcome in about page');
         observer.notify('router', 'Settings')
       })
       .addRoute('', () => {
