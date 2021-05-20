@@ -4,7 +4,6 @@ import LoginView from "./login.v";
 export default class Login {
   private readonly view = new LoginView();
   private readonly model = new LoginModel();
-  private isLogined = false;
   constructor() {
     this.view.btn.addHandlers('click', this.buttonHandler);
   }
