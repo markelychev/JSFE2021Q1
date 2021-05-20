@@ -1,17 +1,15 @@
 class Observer {
-  private listeners: Map<string, Function[]> = new Map()
-  constructor() {
-  }
+  private listeners: Map<string, Function[]> = new Map();
 
   subscribe = (event: string, callback: Function) => {
-    let calbacks = this.listeners.get(event) ?? [];
+    const calbacks = this.listeners.get(event) ?? [];
     calbacks.push(callback);
-    this.listeners.set(event, calbacks)
-  }
+    this.listeners.set(event, calbacks);
+  };
 
   notify = (event: string, data: string) => {
-    this.listeners.get(event)?.forEach(callback => callback(data))
-  }
+    this.listeners.get(event)?.forEach((callback) => callback(data));
+  };
 }
 
 const observer = new Observer();

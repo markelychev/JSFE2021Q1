@@ -38,7 +38,7 @@ export default class Game extends ElementCreator {
   }
 
   private addHandlers = () => {
-    //TODO cards: Map<> слушателя на this.element
+    // TODO cards: Map<> слушателя на this.element
     this.cards.forEach((card) => card.element.addEventListener('click', () => this.cardHandler(card)));
   };
 
@@ -67,7 +67,7 @@ export default class Game extends ElementCreator {
         console.log('win');
         this.matched++;
         if (this.matched === this.size) {
-          this.gameTimer.stop()
+          this.gameTimer.stop();
         }
       } else {
         await delay(delayFlip);
@@ -96,7 +96,7 @@ export default class Game extends ElementCreator {
       this.cards.forEach((card) => {
         card.flip();
       });
-      this.gameTimer.run()
+      this.gameTimer.run();
     }, delayStart);
 
     return this;
